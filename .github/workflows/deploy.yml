@@ -3,10 +3,6 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
-
-on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -14,7 +10,7 @@ permissions:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -32,5 +28,5 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.deploy_token }}
-          publish_dir: ./docs/dist 
+          personal_token: ${{ secrets.DEPLOY_TOKEN }}
+          publish_dir: ./docs/dist
